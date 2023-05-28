@@ -18,7 +18,7 @@ Type is 'int' and answer is 42
 
 This concatenates the string, hence the answer is 'string'
 
-## Question 2 - Operators
+## Question 2 - Operators (Easy)
 
 - Write an expression that multiplies 42 by 10.
 
@@ -37,4 +37,56 @@ This is a floating-point operation, hence we have to add a dot after '/' operato
 - Write an expression that computes 4.2 raised to the seventh power. Note: there is no built-in integer exponentiation
   operator in OCaml (nor is there in C, by the way), in part because it is not an operation provided by most CPUs.
 
-## Question 3
+### Answer
+
+4.2 \*\* 7.0
+
+## Question 3 - Equality (Easy)
+
+- Write an expression that compares 42 to 42 using structural equality.
+
+### Answer
+
+42 = 42;;
+
+- Write an expression that compares "hi" to "hi" using structural equality. What is the result?
+
+### Answer
+
+"hi" = "hi";;
+We get the answer as true.
+
+- Write an expression that compares "hi" to "hi" using physical equality. What is the result?
+
+### Answer
+
+"hi" == "hi";;
+We get the answer as false.
+
+## Question 4 - assert (Easy)
+
+- Enter 'assert true;;' into utop and see what happens.
+
+### Answer
+
+We get the 'unit =()' as output.
+
+- Enter 'assert false;;' into utop and see what happens.
+
+### Answer
+
+We get the exception - Assert_failure.
+
+- Write an expression that asserts 2110 is not (structurally) equal to 3110.
+
+### Answer
+
+assert (2110 <> 3110);;
+
+## Question 5 - if (Easy)
+
+- Write an if expression that evaluates to 42 if 2 is greater than 1 and otherwise evaluates to 7.
+
+### Answer
+
+if 2 > 1 then 42 else 7 ;;
