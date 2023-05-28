@@ -208,7 +208,7 @@ let rec fib n =
         fib (n - 1) + fib (n - 2);;
 ```
 
-### Question 11
+### Question 11 - fib fast (Hard)
 
 - Fast Fibonacci using helper function (Medium)
 
@@ -224,3 +224,63 @@ let rec fib n =
     in
     helper n 0 1
 ```
+
+## Question 12 - poly types (Hard)
+
+- What is the type of each of the functions below?
+
+- let f x = if x then x else x
+  Answer: bool, x is of type bool.
+
+- let g x y = if y then x else x
+  Answer: Returns polymorphic type 'a. x is of type 'a, and y is of type bool.
+- let h x y z = if x then y else z
+  Answer: polymorphic type 'a. x is of type bool, y and z are of types 'a.
+
+- let i x y z = if x then y else y
+  Answer: Here, x will be of type bool, y will be of type 'a and z will be of type 'b
+  Since we are playing with values of x and z, type 'a is returned.
+
+## Question 13 - Divide (Medium)
+
+- Write a function divide : numerator:float -> denominator:float -> float.
+
+### Answer
+
+```OCaml
+let divide x y =
+    x /. y
+```
+
+Note: Always messed up floating-point arithmetic -\_-'
+
+## Question 14 - Associativity (Medium)
+
+- Suppose that we have defined let add x y = x + y. Which of the following produces an integer, which produces
+  a function, and which produces an error? Decide on an answer, then check your answer in the toplevel.
+
+- add 5 1 \- Produces int.
+- add 5 \- Produces a new function
+- (add 5) 1 \- Produces int
+- add (5 1) \- Produces error
+
+## Question 15 - Average (Medium)
+
+- Define an infix operator +/. to compute the average of two floating-point numbers. For example,
+  - 1.0 +/. 2.0 = 1.5
+  - 0. +/. 0. = 0.
+
+### Answer
+
+let (+/.) a b = (a +. b) /. 2.0;;
+
+## Question 16 - Print hello world (Easy)
+
+- Type the following in utop:
+  - print_endline "Hello world!";;
+  - print_string "Hello world!";;
+    Notice the difference in output from each.
+
+### Answer
+
+Both return unit() but in the former new line is printed.
