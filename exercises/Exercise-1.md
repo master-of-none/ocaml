@@ -117,7 +117,7 @@ assert ((cubing 3.) = 27.);;
 assert ((cubing 4.) <> 69.);;
 ```
 
--Define a function that computes the sign (1, 0, or -1) of an integer. Use a nested if expression.
+- Define a function that computes the sign (1, 0, or -1) of an integer. Use a nested if expression.
 
 ### Answer
 
