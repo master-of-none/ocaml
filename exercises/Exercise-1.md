@@ -192,3 +192,35 @@ assert((date 22 "Feb") = true);;
 assert((date 29 "Mar") = true);;
 
 ```
+
+## Question 10 - Fibonacci (Medium)
+
+- Define a recursive function fib : int -> int, such that fib n is the nth number in the Fibonacci sequence.
+
+### Answer
+
+```OCaml
+
+let rec fib n =
+    if n = 1 || n = 2 then
+        1
+    else
+        fib (n - 1) + fib (n - 2);;
+```
+
+### Question 11
+
+- Fast Fibonacci using helper function (Medium)
+
+### Answer
+
+```OCaml
+let rec fib n =
+    let rec helper n pp p =
+        if n = 1 then
+            p
+        else
+            helper(n-1) p (pp + p)
+    in
+    helper n 0 1
+```
