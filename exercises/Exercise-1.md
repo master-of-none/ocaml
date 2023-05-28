@@ -90,3 +90,23 @@ assert (2110 <> 3110);;
 ### Answer
 
 if 2 > 1 then 42 else 7 ;;
+
+## Question 6 - Double Fun (Easy)
+
+Using the increment function from above as a guide, define a function double that multiplies its input by 2. For example,
+double 7 would be 14. Test your function by applying it to a few inputs. Turn those test cases into assertions.
+
+### Answer
+
+let double = fun x -> x \* 2;;
+assert ((double 7) = 14);;
+assert ((double 2) <> 14);;
+
+## Question 7 - More Fun (Medium)
+
+- Define a function that computes the cube of a floating-point number. Test your function by applying it to a few inputs.
+
+### Answer
+
+let cubing = fun cube -> (cube \*\*3);;
+assert ((cubing 3.) = 27.);;
