@@ -160,5 +160,35 @@ assert(area(3.) <> 12.);;
 
 ```OCaml
 let rms x y =
-sqrt ((x**2. +. y**2.) /. 2.);;
+    sqrt ((x**2. +. y**2.) /. 2.);;
+    let result = rms 2 3;;
+```
+
+## Question 9 - Date fun (Hard)
+
+- Define a function that takes an integer d and string m as input and returns true just when d and m form a valid date.
+  Here, a valid date has a month that is one of the following abbreviations: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sept, Oct,
+  Nov, Dec. And the day must be a number that is between 1 and the minimum number of days in that month, inclusive.
+  For example, if the month is Jan, then the day is between 1 and 31, inclusive, whereas if the month is Feb, then the day
+  is between 1 and 28, inclusive.
+  How terse (i.e., few and short lines of code) can you make your function? You can definitely do this in fewer than 12 lines.
+
+```OCaml
+let date d m =
+    if (m = "Jan" || m = "Mar" || m = "May" || m = "Jul" || m = "Aug" || m = "Oct" || m = "Dec" ) && ( d >=1 && d <=31 ) then
+        true
+
+    else if (m = "Apr" || m = "Jun" || m = "Sep" || m = "Nov") && (d >=1 && d <= 30) then
+        true
+
+    else if (m = "Feb" && (d >=1 && d <= 28)) then
+        true
+    else
+        false ;;
+
+(* Testing *)
+assert((date 0 "Jan") = false);;
+assert((date 22 "Feb") = true);;
+assert((date 29 "Mar") = true);;
+
 ```
