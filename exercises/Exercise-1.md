@@ -110,3 +110,25 @@ assert ((double 2) <> 14);;
 
 let cubing = fun cube -> (cube \*\*3);;
 assert ((cubing 3.) = 27.);;
+assert ((cubing 4.) <> 69.);;
+
+-Define a function that computes the sign (1, 0, or -1) of an integer. Use a nested if expression.
+
+### Answer
+
+```OCaml
+let sign x =
+    if x > 0 then
+        1
+
+    else if x < 0
+        then -1
+
+    else
+        0
+(* Testing - all will return Unit*)
+
+assert((sign 10) = 1);;
+assert((sign 0) = 0);;
+assert((sign(-10)) = (-1));;
+```
