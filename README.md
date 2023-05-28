@@ -1,4 +1,4 @@
-# ocaml
+# OCaml
 
 Some functional stuff.\
 After rigorous research and talking with my friend, I decided ocaml is best entrypoint
