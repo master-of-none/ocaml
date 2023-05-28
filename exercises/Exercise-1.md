@@ -98,9 +98,12 @@ double 7 would be 14. Test your function by applying it to a few inputs. Turn th
 
 ### Answer
 
+```OCaml
+
 let double = fun x -> x \* 2;;
 assert ((double 7) = 14);;
 assert ((double 2) <> 14);;
+```
 
 ## Question 7 - More Fun (Medium)
 
@@ -108,9 +111,11 @@ assert ((double 2) <> 14);;
 
 ### Answer
 
+```OCaml
 let cubing = fun cube -> (cube \*\*3);;
 assert ((cubing 3.) = 27.);;
 assert ((cubing 4.) <> 69.);;
+```
 
 -Define a function that computes the sign (1, 0, or -1) of an integer. Use a nested if expression.
 
@@ -131,4 +136,29 @@ let sign x =
 assert((sign 10) = 1);;
 assert((sign 0) = 0);;
 assert((sign(-10)) = (-1));;
+```
+
+- Define a function that computes the area of a circle given its radius. Test your function with assert.
+
+### Answer
+
+```OCaml
+let area r =
+    3.14 *. (r**2.)
+
+(* Testing *)
+assert(area(2.) = 12.56);;
+assert(area(3.) <> 12.);;
+
+```
+
+## Question 8 - RMS (Med)
+
+- Find root mean square √(𝑥^2 + 𝑦^2)/2.
+
+### Answer
+
+```OCaml
+let rms x y =
+sqrt ((x**2. +. y**2.) /. 2.);;
 ```
