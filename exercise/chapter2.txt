@@ -62,3 +62,30 @@ by applying it to a few inputs.
   a)Define a function that computes the root mean square of two numbers—i.e., √(𝑥2 + 𝑦2)/2. Test your function with
 assert.
   Answer: let rms x y = sqrt((x ** 2. +. y ** 2.) /. 2.);;
+
+9) date fun
+Answer:
+let date d m = if d < 1 then false 
+else if d <= 31 && m = "Jan" || m = "Mar" || m = "May" || m = "Jul" ||m = "Aug" || m = "Oct" || m = "Dec"
+then true
+else if m = "Apr" || m = "Jun" || m = "Sept" || m = "Nov" && d <= 30
+then true
+else if m = "Feb" && d <= 28
+then true
+else false;;
+
+10) fib
+Answer: let rec fib n  = if n <= 2 then 1 else fib (n - 1) + fib (n - 2);;
+
+11) Fib Fast
+Answer :
+let rec fib_acc n a b = if n = 1 then b else fib_acc(n - 1) b (a + b);; 
+let fib n = if n = 0 then 0 else fib_acc n 0 1;;
+
+12) Divide
+Answer:
+let divide ~numerator:x ~denomiator:y = x /. y;;
+
+13) Infix operatot
+Answer:
+let (+/.) a b = (a +. b) /. 2.;;
