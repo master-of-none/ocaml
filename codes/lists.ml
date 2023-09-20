@@ -30,3 +30,8 @@ let rec inc lst =
   match lst with
   | [] -> []
   | h :: t -> (h + 1) :: inc t
+
+(** Another way of writing sum *)
+let rec sum_alt = function
+  | [] -> 0
+  | h :: t -> h + sum_alt t
