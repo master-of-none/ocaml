@@ -22,4 +22,82 @@ let rec prod = function
 Answer:
 let rec concat_list = function
 | [] -> ""
-| h :: t -> h ^ concat_list t 
+| h :: t -> h ^ concat_list t
+
+4) Patterns
+a) the list’s first element is "bigred"
+Answer:
+let first_check = function
+| [] -> false
+| h :: _ -> h = "bigred"
+
+b)list has exactly two or four elements; do not use the length function
+Answer:
+let length_check = function
+| _ :: _ :: []-> true
+| _ :: _ :: _ :: _ :: []-> true
+| _  -> false
+
+//! This is using length function
+let length_check lst =
+match List.length lst with
+| 2 -> true
+| 4 -> true
+| _ -> false;;
+
+c) the first two elements of the list are equal
+let equal_elem = function
+| a :: b :: _ -> a = b
+| _ -> false
+
+5) Library
+a) Write a function that takes an int list and returns the fifth element of that list, if such an element exists. If the
+list has fewer than five elements, return 0. Hint: List.length and List.nth.
+Answer:
+let fifth_element lst = 
+if List.length lst >= 5 then List.nth lst 4 else 0
+
+b) Write a function that takes an int list and returns the list sorted in descending order. Hint: List.sort with
+Stdlib.compare as its first argument, and List.rev.
+Answer:
+let sorted_list lst = 
+List.rev (List.sort Stdlib.compare lst)
+
+6) Library Puzzle
+a) Write a function that returns the last element of a list. Your function may assume that the list is non-empty. Hint:
+Use two library functions, and do not write any pattern matching code of your own.
+Answer:
+let last_element lst = 
+List.nth lst (List.length lst - 1)
+
+b) Write a function any_zeroes : int list -> bool that returns true if and only if the input list contains
+at least one 0. Hint: use one library function, and do not write any pattern matching code of your own.
+Answer:
+
+let zero_exist lst = 
+List.exists (fun x -> x = 0) lst
+
+7) Take Drop
+a) Write a function take : int -> 'a list -> 'a list such that take n lst returns the first n
+elements of lst. If lst has fewer than n elements, return all of them.
+Answer:
+let rec take n lst = 
+if n = 0 then [] else match lst with
+| [] -> []
+| h :: t -> h :: take (n - 1) t
+
+b) Write a function drop : int -> 'a list -> 'a list such that drop n lst returns all but the first
+n elements of lst. If lst has fewer than n elements, return the empty list.
+Answer:
+let rec drop n lst = 
+if n = 0 then lst else match lst with
+| [] -> []
+| h :: t -> drop(n - 1) t
+
+8) take drop tail
+a) Take using tail recursion
+Answer:
+let rec take_tail n lst acc = 
+if n = 0 then acc else match lst with
+| [] -> acc
+| h :: t -> h :: take_tail (n - 1) t (h::acc)
