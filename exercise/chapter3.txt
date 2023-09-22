@@ -101,3 +101,19 @@ let rec take_tail n lst acc =
 if n = 0 then acc else match lst with
 | [] -> acc
 | h :: t -> h :: take_tail (n - 1) t (h::acc)
+
+9) Unimodal
+Answer:
+let rec uni_mod_dec = function
+| [] -> true
+| [_] -> true
+| h1 :: h2 :: t -> h1 >= h2 && uni_mod_dec t
+
+let rec uni_mod_inc_dec = function
+| [] -> true
+| [_] -> true
+| h1 ::  (h2 :: t) as lst -> if h1 <= h2 then uni_mod_inc_dec t else uni_mod_dec lst
+
+let uni_mod lst = 
+uni_mod_inc_dec lst
+
