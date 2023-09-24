@@ -117,3 +117,10 @@ let rec uni_mod_inc_dec = function
 let uni_mod lst = 
 uni_mod_inc_dec lst
 
+10) PowerSet
+Program to give all the subsets
+Answer:
+let rec power_set = function
+| [] -> [[]]
+| x :: xs -> let p = power_set xs in List.map (List.cons x) p @ p
+
