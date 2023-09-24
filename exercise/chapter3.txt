@@ -124,3 +124,40 @@ let rec power_set = function
 | [] -> [[]]
 | x :: xs -> let p = power_set xs in List.map (List.cons x) p @ p
 
+11) Print the list
+Answer:
+let rec print_int_list = function
+| [] -> ()
+| h :: t -> print_endline (string_of_int h); print_int_list t
+
+12) Print list iter
+Answer:
+let print_int_list_iter = 
+List.iter(fun x -> print_endline (string_of_int x))
+
+13) Student record
+type student = {first_name: string; last_name: string; gpa: float}
+
+a) student creation
+let s = {first_name = "abc"; last_name = "def"; gpa = 4.0}
+
+b) get students name
+let full_name student = 
+student.first_name, student.last_name
+
+c) student recoed
+let stud_record fname lname g = 
+{first_name = fname; last_name = lname; gpa = g}
+
+14) Pokemon
+type poketype = Normal | Fire | Water
+
+a) Pokemon type
+Answer: 
+type pokemon = {name: string; hp: int; ptype: poketype}
+
+b) Charizard
+let chari = {name = "Charizard"; hp = 78; ptype = Fire}
+
+c) Squirtle
+let squirt = {name = "Squirtle"; hp = 44; ptype = Water}
