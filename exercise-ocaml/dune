@@ -1,2 +1,7 @@
 (executable
-  (name tail_of_list))
+ (name tail_of_list)
+ (modules tail_of_list))
+
+(executable
+ (name last_two)
+ (modules last_two))
