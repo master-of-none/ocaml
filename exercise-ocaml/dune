@@ -5,3 +5,7 @@
 (executable
  (name last_two)
  (modules last_two))
+
+(executable
+ (name nth_element)
+ (modules nth_element))
