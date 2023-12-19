@@ -28,25 +28,35 @@ let rec drop_zero = function
 
 let _ = drop_zero [ 1; 2; 3; 0; 4; 5 ]
 
-(** Performance Checkking code*)
 open Core_bench
-let plus_one_match x = 
-    match x with
-    | 0 -> 1
-    | 1 -> 2
-    | 2 -> 3
-    | 3 -> 4
-    | _ -> x + 1
+(** Performance Checkking code*)
+
+let plus_one_match x =
+  match x with
+  | 0 -> 1
+  | 1 -> 2
+  | 2 -> 3
+  | 3 -> 4
+  | _ -> x + 1
+
+let plus_one_if x =
+  if x = 0 then 1 else if x = 1 then 2 else if x = 2 then 3 else x + 1
 ;;
 
-let plus_one_if x = 
-    if x = 0 then 1
-    else if x = 1 then 2
-    else if x = 2 then 3
-    else x + 1
+[ Bench.Test.create ~name:"plus_one_match" (fun () -> plus_one_match 10)
+; Bench.Test.create ~name:"plus_one_if" (fun () -> plus_one_if 10)
+]
+|> Bench.bench
+
+open Base
+(** Another testing example*)
+
+let rec sum_if list =
+  if List.is_empty list then 0 else List.hd_exn list + sum_if (List.tl_exn list)
 ;;
 
-[Bench.Test.create ~name: "plus_one_match" ( fun () -> plus_one_match 10);
-    Bench.Test.create ~name: "plus_one_if" (fun () -> plus_one_if 10)
+let numbers = List.range 0 1000 in
+[ Bench.Test.create ~name:"sum_if" (fun () -> sum_if numbers)
+; Bench.Test.create ~name:"sum" (fun () -> sum numbers)
 ]
 |> Bench.bench
