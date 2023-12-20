@@ -60,3 +60,13 @@ let numbers = List.range 0 1000 in
 ; Bench.Test.create ~name:"sum" (fun () -> sum numbers)
 ]
 |> Bench.bench
+
+(** Fold Function *)
+(* let _ = List.fold ~init:0 ~f:( + ) [ 1; 2; 3; 4 ] *)
+
+(** Fold reverse *)
+(* let _ = List.fold ~init:[] ~f:(fun acc hd -> hd :: acc) [ 1; 2; 3; 4 ] *)
+
+(** Filter *)
+(* List.filter ~f:(fun x -> x % 2 = 0) [1; 2; 3; 4; 5] *)
+
