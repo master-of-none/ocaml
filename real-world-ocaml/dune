@@ -1,3 +1,0 @@
-(executable
- (name code)
- (libraries core core_bench))
