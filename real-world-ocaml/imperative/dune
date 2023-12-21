@@ -1,0 +1,3 @@
+(executable
+ (name arrays)
+ (libraries base stdio))
