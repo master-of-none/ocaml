@@ -1,3 +1,9 @@
 (executable
  (name arrays)
+ (modules arrays)
+ (libraries base stdio))
+
+(executable
+ (name doubly_linked_list)
+ (modules doubly_linked_list)
  (libraries base stdio))
