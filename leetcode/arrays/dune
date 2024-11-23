@@ -12,3 +12,8 @@
  (name two_sum)
  (modules two_sum)
  (libraries ounit2))
+
+(executable
+(name group_anagrams)
+(modules group_anagrams)
+(libraries ounit2))
