@@ -1,0 +1,3 @@
+(executable
+ (name contains_duplicate)
+ (libraries ounit2))
