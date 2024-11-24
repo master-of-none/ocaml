@@ -17,3 +17,8 @@
 (name group_anagrams)
 (modules group_anagrams)
 (libraries ounit2))
+
+(executable
+(name product_self)
+(modules product_self)
+(libraries ounit2))
