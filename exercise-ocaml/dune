@@ -9,3 +9,7 @@
 (executable
  (name nth_element)
  (modules nth_element))
+
+(executable
+(name tree)
+(modules tree))
