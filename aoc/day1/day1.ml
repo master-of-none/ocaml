@@ -8,8 +8,8 @@ let split_lines lines =
   split [] [] lines
 
 let puzzle1 left right =
-  let sorted_left = List.sort compare left in
-  let sorted_right = List.sort compare right in
+  List.sort compare left |> fun sorted_left ->
+  List.sort compare right |> fun sorted_right ->
   List.fold_left2 (fun acc x y -> acc + abs (x - y)) 0 sorted_left sorted_right
 
 let build_hashmap list =
@@ -27,12 +27,10 @@ let puzzle2 left hashmap_right =
     0 left
 
 let solve filename =
-  let lines = Read_file.read_file filename in
-  let left, right = split_lines lines in
-
+  filename |> Read_file.read_file |> split_lines |> fun (left, right) ->
   let res1 = puzzle1 left right in
-  Printf.printf "The Puzzle 1 Solution is: %d\n" res1;
+  Printf.printf "The Puzzle 1 solution is :%d\n" res1;
 
-  let hashmap_right = build_hashmap right in
+  right |> build_hashmap |> fun hashmap_right ->
   let res2 = puzzle2 left hashmap_right in
-  Printf.printf "THe Puzzle 2 Solution is %d\n" res2
+  Printf.printf "The Puzzle 2 solution is: %d\n" res2
