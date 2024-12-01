@@ -13,17 +13,13 @@ let puzzle1 left right =
   List.fold_left2 (fun acc x y -> acc + abs (x - y)) 0 sorted_left sorted_right
 
 let build_hashmap list =
-  List.fold_left
-    (fun acc n ->
-      let count = try List.assoc n acc with Not_found -> 0 in
-      (n, count + 1) :: List.remove_assoc n acc)
-    [] list
+  let hashmap = Hashtbl.create (List.length list) in
+  List.iter (fun n -> let count = try Hashtbl.find hashmap n with Not_found -> 0 in Hashtbl.replace hashmap n (count + 1))
+  list; hashmap
 
 let puzzle2 left hashmap_right =
-  List.fold_left
-    (fun acc n ->
-      let count = try List.assoc n hashmap_right with Not_found -> 0 in
-      acc + (n * count))
+  List.fold_left (fun acc n ->
+    let count = try Hashtbl.find hashmap_right n with Not_found -> 0 in acc + (n * count))
     0 left
 
 let solve filename =
