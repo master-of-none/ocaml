@@ -1,1 +1,1 @@
-let () = Day1.run ()
+let () = Day1.solve "day1/input.txt"
