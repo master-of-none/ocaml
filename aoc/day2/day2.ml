@@ -32,22 +32,21 @@ let puzzle1 reports =
 
 let puzzle2 reports =
   List.fold_left reports ~init:0 ~f:(fun acc report ->
-    if safe_report report then
-      acc + 1
-    else
-      let rec try_remove_element i =
-        if i >= List.length report then false
-        else let modified_report = List.filteri report ~f:(fun j _ -> j <> i)in
-        if safe_report modified_report then true
-        else try_remove_element (i+1)
-      in if try_remove_element 0 then acc + 1 else acc
-    )
-let solve filename =
-  filename |> Read_file.read_file |> split_lines |> fun(parsed_input)->
+      if safe_report report then acc + 1
+      else
+        let rec try_remove_element i =
+          if i >= List.length report then false
+          else
+            let modified_report = List.filteri report ~f:(fun j _ -> j <> i) in
+            if safe_report modified_report then true
+            else try_remove_element (i + 1)
+        in
+        if try_remove_element 0 then acc + 1 else acc)
 
+let solve filename =
+  filename |> Read_file.read_file |> split_lines |> fun parsed_input ->
   let res1 = puzzle1 parsed_input in
   Printf.printf "The Puzzle 1 solution is: %d\n" res1;
-  
-  let res2 = puzzle2 parsed_input in
-  Printf.printf "The Puzzle 2 solution is: %d\n" res2;
 
+  let res2 = puzzle2 parsed_input in
+  Printf.printf "The Puzzle 2 solution is: %d\n" res2
