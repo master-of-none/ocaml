@@ -14,12 +14,18 @@ let puzzle1 left right =
 
 let build_hashmap list =
   let hashmap = Hashtbl.create (List.length list) in
-  List.iter (fun n -> let count = try Hashtbl.find hashmap n with Not_found -> 0 in Hashtbl.replace hashmap n (count + 1))
-  list; hashmap
+  List.iter
+    (fun n ->
+      let count = try Hashtbl.find hashmap n with Not_found -> 0 in
+      Hashtbl.replace hashmap n (count + 1))
+    list;
+  hashmap
 
 let puzzle2 left hashmap_right =
-  List.fold_left (fun acc n ->
-    let count = try Hashtbl.find hashmap_right n with Not_found -> 0 in acc + (n * count))
+  List.fold_left
+    (fun acc n ->
+      let count = try Hashtbl.find hashmap_right n with Not_found -> 0 in
+      acc + (n * count))
     0 left
 
 let solve filename =
