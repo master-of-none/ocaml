@@ -1,0 +1,24 @@
+(executable
+ (name contains_duplicate)
+ (modules contains_duplicate)
+ (libraries ounit2))
+
+(executable
+ (name valid_anagram)
+ (modules valid_anagram)
+ (libraries ounit2))
+
+(executable
+ (name two_sum)
+ (modules two_sum)
+ (libraries ounit2))
+
+(executable
+(name group_anagrams)
+(modules group_anagrams)
+(libraries ounit2))
+
+(executable
+(name product_self)
+(modules product_self)
+(libraries ounit2))

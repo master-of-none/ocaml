@@ -1,0 +1,5 @@
+(executable
+ (name valid_parantheses))
+
+(executable
+ (name minimum_stack))
