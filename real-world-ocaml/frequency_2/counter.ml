@@ -6,3 +6,4 @@ let touch counts line =
         | Some x -> x
     in
     List.Assoc.add ~equal: String.equal counts line (count + 1)
+

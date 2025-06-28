@@ -2,5 +2,3 @@
  (name basics)
  (modules basics)
  (libraries base stdio))
-
- 
