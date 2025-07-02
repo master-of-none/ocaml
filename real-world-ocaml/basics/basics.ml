@@ -24,20 +24,21 @@ let rec remove_sequential_duplicates list =
 
 let _ = remove_sequential_duplicates [ 1; 1; 2; 3; 4 ]
 
-let languages = "OCaml, Python, C++";;
-let dashed_languages = 
-  let language_list = String.split languages ~on: ',' in
-  let trimmed_list = List.map ~f: String.strip language_list in
-  String.concat ~sep: "-" trimmed_list
+let languages = "OCaml, Python, C++"
+
+let dashed_languages =
+  let language_list = String.split languages ~on:',' in
+  let trimmed_list = List.map ~f:String.strip language_list in
+  String.concat ~sep:"-" trimmed_list
 
 (**? Other Way *)
-let dashed_languages_pipe = 
+let dashed_languages_pipe =
   languages
-  |> String.split ~on: ','
-  |> List.map ~f: String.strip
-  |> String.concat ~sep: "-"
+  |> String.split ~on:','
+  |> List.map ~f:String.strip
+  |> String.concat ~sep:"-"
 
-let () = print_endline ("Dashed Languages: " ^  dashed_languages_pipe)
+let () = print_endline ("Dashed Languages: " ^ dashed_languages_pipe)
 
 (* let rec read_and_accumulate accum =
   let line = In_channel.input_line In_channel.stdin in
