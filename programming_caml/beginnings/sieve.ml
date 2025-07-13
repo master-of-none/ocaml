@@ -9,6 +9,7 @@ let () =
   prime.(1) <- false;
 
   let limit = truncate (sqrt (float max)) in
+  Printf.printf "Limit is %d\n" limit;
   for n = 2 to limit do
     if prime.(n) then begin
       let m = ref (n * n) in
